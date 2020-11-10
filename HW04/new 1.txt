@@ -1,0 +1,19 @@
+	int priority = waitlist[index1]->priority;
+	string name = waitlist[index1]->name;
+	Patient* tmp = new Patient(priority, name);
+	int i, j, flag = 1;    // set flag to 1 to start first pass
+	int numlength = 9;
+	for (i = 1; (i <= numlength) && flag; i++)
+	{
+		flag = 0;
+		for (j = 0; j < (numlength - 1); j++)
+		{
+			if (waitlist[index1 + 1] > waitlist[index2])      // ascending order simply changes to <
+			{
+				tmp = waitlist[index2];             // swap elements
+				waitlist[index2] = waitlist[index1 + 1];
+				waitlist[index2 + 1] = tmp;
+				flag = 1;               // indicates that a swap occurred.
+			}
+		}
+	}
